@@ -8,6 +8,11 @@ const keys = require("../keys/devKeys");
 
 const app = express();
 
+mongoose
+	.connect(keys.mongoURI)
+	.then(() => console.log("MongoDB Connected"))
+	.catch(err => console.log(err));
+
 app.use(bodyParser.json());
 
 const port = process.env.PORT || 5000;
