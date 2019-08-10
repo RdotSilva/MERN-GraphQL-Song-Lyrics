@@ -2,6 +2,7 @@ const express = require("express");
 // const models = require("./models");
 const expressGraphQL = require("express-graphql");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const bodyParser = require("body-parser");
 const schema = require("./schema/schema");
 const keys = require("../keys/devKeys");
@@ -14,6 +15,7 @@ mongoose
 	.then(() => console.log("MongoDB Connected"))
 	.catch(err => console.log(err));
 
+app.use(cors());
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
