@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
@@ -13,7 +14,11 @@ class App extends Component {
 	render() {
 		return (
 			<ApolloProvider client={client}>
-				<SongList />
+				<Router>
+					<Switch>
+						<Route exact path="/songlist" component={SongList} />
+					</Switch>
+				</Router>
 			</ApolloProvider>
 		);
 	}
