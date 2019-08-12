@@ -2,6 +2,8 @@ import React from "react";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 
+import { Link } from "react-router-dom";
+
 const SongList = () => {
 	const { loading, error, data } = useQuery(query);
 
@@ -18,7 +20,14 @@ const SongList = () => {
 	if (loading) return <p>Loading...</p>;
 	if (error) return <p>Error :(</p>;
 
-	return <ul className="collection">{renderSongs()}</ul>;
+	return (
+		<div>
+			<ul className="collection">{renderSongs()}</ul>
+			<Link to="/songs/new" className="btn-floating btn-large red right">
+				+
+			</Link>
+		</div>
+	);
 };
 
 const query = gql`
