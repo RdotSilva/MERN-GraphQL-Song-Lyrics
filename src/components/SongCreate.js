@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 
+import gql from "graphql-tag";
+import { useMutation } from "@apollo/react-hooks";
+
 const SongCreate = () => {
 	const [songData, setSongData] = useState({
 		title: ""
 	});
+
+	const [addSong, { data }] = useMutation(ADD_SONG);
 
 	const { title } = songData;
 
@@ -25,5 +30,11 @@ const SongCreate = () => {
 		</div>
 	);
 };
+
+const ADD_SONG = gql`
+	mutation AddSong($title: String) {
+		addSong(title: $title)
+	}
+`;
 
 export default SongCreate;
