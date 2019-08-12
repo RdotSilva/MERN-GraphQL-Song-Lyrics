@@ -18,12 +18,13 @@ const SongCreate = () => {
 
 	const onSubmit = e => {
 		e.preventDefault();
+		addSong({ variables: { title: title } });
 	};
 
 	return (
 		<div>
 			<h1>Create a new song!</h1>
-			<form onSubmit={onSubmit()}>
+			<form onSubmit={onSubmit}>
 				<label>Song Title:</label>
 				<input name="title" onChange={e => onChange(e)} value={title} />
 			</form>
@@ -33,7 +34,9 @@ const SongCreate = () => {
 
 const ADD_SONG = gql`
 	mutation AddSong($title: String) {
-		addSong(title: $title)
+		addSong(title: $title) {
+			title
+		}
 	}
 `;
 
