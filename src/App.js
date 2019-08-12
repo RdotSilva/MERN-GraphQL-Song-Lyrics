@@ -18,7 +18,7 @@ class App extends Component {
 				<Router>
 					<Switch>
 						<Route exact path="/songlist" component={SongList} />
-						<Route exact path="/song/new" component={SongCreate} />
+						<Route exact path="/songs/new" component={SongCreate} />
 					</Switch>
 				</Router>
 			</ApolloProvider>
