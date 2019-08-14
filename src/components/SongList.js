@@ -14,6 +14,9 @@ const SongList = () => {
 			return (
 				<li key={song.id} className="collection-item">
 					{song.title}
+					<i className="material-icons" onClick={onSongDelete}>
+						delete
+					</i>
 				</li>
 			);
 		});
