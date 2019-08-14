@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-
 import { Link } from "react-router-dom";
-
 import gql from "graphql-tag";
 import { useMutation } from "@apollo/react-hooks";
 
@@ -10,7 +8,9 @@ const SongCreate = props => {
 		title: ""
 	});
 
-	const [addSong, { data, called }] = useMutation(ADD_SONG);
+	const [addSong, { data, called }] = useMutation(ADD_SONG, {
+		refetchQueries: ["FetchSongs"]
+	});
 
 	const { title } = songData;
 
