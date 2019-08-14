@@ -9,12 +9,16 @@ import FETCH_SONGS from "../queries/fetchSongs";
 const SongList = () => {
 	const { loading, error, data } = useQuery(FETCH_SONGS);
 
+	const onSongDelete = id => {
+		//
+	};
+
 	const renderSongs = () => {
 		return data.songs.map(song => {
 			return (
 				<li key={song.id} className="collection-item">
 					{song.title}
-					<i className="material-icons" onClick={onSongDelete}>
+					<i className="material-icons" onClick={onSongDelete(song.id)}>
 						delete
 					</i>
 				</li>
