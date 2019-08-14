@@ -1,8 +1,7 @@
 import { gql } from "apollo-boost";
 
 const FETCH_SONGS = gql`
-	query FetchSongs{
-    {
+	query FetchSongs {
 		songs {
 			id
 			title
