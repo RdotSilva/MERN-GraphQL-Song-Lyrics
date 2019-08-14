@@ -4,8 +4,10 @@ import { useQuery } from "@apollo/react-hooks";
 
 import { Link } from "react-router-dom";
 
+import FETCH_SONGS from "../queries/fetchSongs";
+
 const SongList = () => {
-	const { loading, error, data } = useQuery(query);
+	const { loading, error, data } = useQuery(FETCH_SONGS);
 
 	const renderSongs = () => {
 		return data.songs.map(song => {
@@ -30,13 +32,13 @@ const SongList = () => {
 	);
 };
 
-const query = gql`
-	{
-		songs {
-			id
-			title
-		}
-	}
-`;
+// const query = gql`
+// 	{
+// 		songs {
+// 			id
+// 			title
+// 		}
+// 	}
+// `;
 
 export default SongList;
