@@ -1,17 +1,20 @@
 import React from "react";
 import { gql } from "apollo-boost";
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery, useMutation } from "@apollo/react-hooks";
 
 import { Link } from "react-router-dom";
 
 import FETCH_SONGS from "../queries/fetchSongs";
+import DELETE_SONG from "../queries/deleteSong";
 
 const SongList = () => {
 	const { loading, error, data } = useQuery(FETCH_SONGS);
 
-	const onSongDelete = id => {
-		//
-	};
+	const [deleteSong] = useMutation(DELETE_SONG, {
+		variables: { id }
+	});
+
+	const onSongDelete = id => {};
 
 	const renderSongs = () => {
 		return data.songs.map(song => {
