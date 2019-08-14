@@ -40,19 +40,10 @@ const SongList = () => {
 		<div className="container">
 			<ul className="collection">{renderSongs()}</ul>
 			<Link to="/songs/new" className="btn-floating btn-large red right">
-				+
+				<i className="material-icons">add</i>
 			</Link>
 		</div>
 	);
 };
-
-// const query = gql`
-// 	{
-// 		songs {
-// 			id
-// 			title
-// 		}
-// 	}
-// `;
 
 export default SongList;

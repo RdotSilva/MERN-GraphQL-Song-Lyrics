@@ -27,7 +27,7 @@ const SongCreate = props => {
 	return (
 		<div className="container">
 			<Link to="/songlist" className="btn-floating btn-small blue">
-				Back
+				<i className="material-icons">arrow_back</i>
 			</Link>
 			<h1>Create a new song!</h1>
 			<form onSubmit={onSubmit}>
