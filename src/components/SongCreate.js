@@ -25,7 +25,7 @@ const SongCreate = props => {
 	};
 
 	return (
-		<div>
+		<div className="container">
 			<Link to="/songlist" className="btn-floating btn-small blue">
 				Back
 			</Link>

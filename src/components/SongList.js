@@ -37,7 +37,7 @@ const SongList = () => {
 	if (error) return <p>Error :(</p>;
 
 	return (
-		<div>
+		<div className="container">
 			<ul className="collection">{renderSongs()}</ul>
 			<Link to="/songs/new" className="btn-floating btn-large red right">
 				+
