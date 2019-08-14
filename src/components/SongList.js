@@ -11,17 +11,21 @@ const SongList = () => {
 	const { loading, error, data } = useQuery(FETCH_SONGS);
 
 	const [deleteSong] = useMutation(DELETE_SONG, {
-		variables: { id }
+		refetchQueries: ["FetchSongs"]
 	});
 
-	const onSongDelete = id => {};
+	const onSongDelete = id => {
+		deleteSong({
+			variables: { id }
+		});
+	};
 
 	const renderSongs = () => {
 		return data.songs.map(song => {
 			return (
 				<li key={song.id} className="collection-item">
 					{song.title}
-					<i className="material-icons" onClick={onSongDelete(song.id)}>
+					<i className="material-icons" onClick={() => onSongDelete(song.id)}>
 						delete
 					</i>
 				</li>
