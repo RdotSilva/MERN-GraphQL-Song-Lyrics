@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 
+import LyricCreate from "./LyricCreate";
+
 import FETCH_SONG from "../queries/fetchSong";
 
 const SongDetail = props => {
@@ -14,11 +16,12 @@ const SongDetail = props => {
 	const { song } = data;
 
 	return (
-		<div>
+		<div className="container">
 			<Link to="/songlist" className="btn-floating btn-small blue">
 				<i className="material-icons">arrow_back</i>
 			</Link>
 			<h3>{song.title}</h3>
+			<LyricCreate />
 		</div>
 	);
 };
