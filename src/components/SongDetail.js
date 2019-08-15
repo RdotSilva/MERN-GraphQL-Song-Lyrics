@@ -22,7 +22,7 @@ const SongDetail = props => {
 				<i className="material-icons">arrow_back</i>
 			</Link>
 			<h3>{song.title}</h3>
-			<LyricList />
+			<LyricList lyrics={song.lyrics} />
 			<LyricCreate songId={song.id} />
 		</div>
 	);
