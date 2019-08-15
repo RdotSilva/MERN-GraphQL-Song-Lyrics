@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 const LyricCreate = () => {
+	const [content, setContent] = useState("");
+
 	return (
 		<div>
 			<form>
