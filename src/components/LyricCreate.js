@@ -17,8 +17,9 @@ const LyricCreate = props => {
 
 	const onSubmit = e => {
 		e.preventDefault();
-		addLyricsToSong({ variables: { content: content, songId: id } });
-		props.history.goBack();
+		addLyricToSong({
+			variables: { content: content, songId: props.songId }
+		}).then(() => setContent(""));
 	};
 
 	return (
