@@ -8,13 +8,13 @@ const SongDetail = props => {
 		variables: { id: props.match.params.id }
 	});
 
-	if (loading) return <h1>Loading</h1>;
+	if (loading) return <div />;
 
-	console.log(data);
+	const { song } = data;
 
 	return (
 		<div>
-			<h3>Song Detail</h3>
+			<h3>{song.title}</h3>
 		</div>
 	);
 };
