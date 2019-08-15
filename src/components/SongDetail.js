@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 
 import LyricCreate from "./LyricCreate";
+import LyricList from "./LyricList";
 
 import FETCH_SONG from "../queries/fetchSong";
 
@@ -21,6 +22,7 @@ const SongDetail = props => {
 				<i className="material-icons">arrow_back</i>
 			</Link>
 			<h3>{song.title}</h3>
+			<LyricList />
 			<LyricCreate songId={song.id} />
 		</div>
 	);
