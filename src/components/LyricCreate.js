@@ -1,7 +1,15 @@
 import React, { useState } from "react";
 
-const LyricCreate = () => {
+import { useMutation } from "@apollo/react-hooks";
+
+import ADD_LYRIC from "../queries/addLyric";
+
+const LyricCreate = props => {
 	const [content, setContent] = useState("");
+
+	const [addLyricToSong, { data, called }] = useMutation(ADD_LYRIC, {
+		refetchQueries: ["FetchSongs"]
+	});
 
 	const handleInputChange = content => {
 		setContent(content);
@@ -9,8 +17,8 @@ const LyricCreate = () => {
 
 	const onSubmit = e => {
 		e.preventDefault();
-		// addSong({ variables: { title: title } });
-		// props.history.goBack();
+		addLyricsToSong({ variables: { content: content, songId: id } });
+		props.history.goBack();
 	};
 
 	return (
