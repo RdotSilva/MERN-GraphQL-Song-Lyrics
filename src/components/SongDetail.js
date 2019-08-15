@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 
 import FETCH_SONG from "../queries/fetchSong";
@@ -14,6 +15,9 @@ const SongDetail = props => {
 
 	return (
 		<div>
+			<Link to="/songlist" className="btn-floating btn-small blue">
+				<i className="material-icons">arrow_back</i>
+			</Link>
 			<h3>{song.title}</h3>
 		</div>
 	);
