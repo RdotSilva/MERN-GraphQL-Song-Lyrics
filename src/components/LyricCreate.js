@@ -7,9 +7,15 @@ const LyricCreate = () => {
 		setContent(content);
 	};
 
+	const onSubmit = e => {
+		e.preventDefault();
+		// addSong({ variables: { title: title } });
+		// props.history.goBack();
+	};
+
 	return (
 		<div>
-			<form>
+			<form onSubmit={onSubmit}>
 				<label>Add a Lyric</label>
 				<input
 					value={content}
