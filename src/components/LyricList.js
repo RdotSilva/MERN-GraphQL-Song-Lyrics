@@ -20,10 +20,12 @@ const LyricList = props => {
 			return (
 				<li key={lyric.id} className="collection-item">
 					{lyric.content}
-					<i className="material-icons" onClick={() => onLike(lyric.id)}>
-						thumb_up
-					</i>
-					{lyric.likes}
+					<div className="vote-box">
+						<i className="material-icons" onClick={() => onLike(lyric.id)}>
+							thumb_up
+						</i>
+						{lyric.likes}
+					</div>
 				</li>
 			);
 		});
