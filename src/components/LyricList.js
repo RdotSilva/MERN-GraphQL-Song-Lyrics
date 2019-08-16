@@ -7,12 +7,16 @@ const LyricList = props => {
 
 	const { lyrics } = props;
 
+	const onLike = id => {
+		console.log(id);
+	};
+
 	const renderLyrics = () => {
 		return lyrics.map(lyric => {
 			return (
 				<li key={lyric.id} className="collection-item">
 					{lyric.content}
-					<i className="material-icons" onClick={() => onLike(id)}>
+					<i className="material-icons" onClick={() => onLike(lyric.id)}>
 						thumb_up
 					</i>
 				</li>
