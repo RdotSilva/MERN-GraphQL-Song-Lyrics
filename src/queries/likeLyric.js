@@ -9,4 +9,4 @@ const LIKE_LYRIC = gql`
 	}
 `;
 
-export default LIKE_LYRICS;
+export default LIKE_LYRIC;

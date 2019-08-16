@@ -2,13 +2,17 @@ import React from "react";
 
 import { useMutation } from "@apollo/react-hooks";
 
+import LIKE_LYRIC from "../queries/likeLyric";
+
 const LyricList = props => {
-	console.log(props.lyrics);
+	const [likeLyric] = useMutation(LIKE_LYRIC);
 
 	const { lyrics } = props;
 
 	const onLike = id => {
-		console.log(id);
+		likeLyric({
+			variables: { id }
+		});
 	};
 
 	const renderLyrics = () => {
