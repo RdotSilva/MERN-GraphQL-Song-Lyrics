@@ -3,14 +3,17 @@ import "./style/style.css";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import ApolloClient from "apollo-boost";
+import ApolloClient, { InMemoryCache } from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
 import SongList from "./components/SongList";
 import SongCreate from "./components/SongCreate";
 import SongDetail from "./components/SongDetail";
 
+const cache = new InMemoryCache();
+
 const client = new ApolloClient({
-	uri: "http://localhost:4000/graphql"
+	uri: "http://localhost:4000/graphql",
+	cache
 });
 
 class App extends Component {
