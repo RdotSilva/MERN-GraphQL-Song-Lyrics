@@ -23,6 +23,7 @@ const LyricList = props => {
 					<i className="material-icons" onClick={() => onLike(lyric.id)}>
 						thumb_up
 					</i>
+					{lyric.likes}
 				</li>
 			);
 		});
