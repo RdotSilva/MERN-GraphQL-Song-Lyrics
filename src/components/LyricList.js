@@ -9,9 +9,17 @@ const LyricList = props => {
 
 	const { lyrics } = props;
 
-	const onLike = id => {
+	const onLike = (id, likes) => {
 		likeLyric({
-			variables: { id }
+			variables: { id },
+			optimisticResponse: {
+				__typename: "Mutation",
+				likeLyric: {
+					id: id,
+					__typename: "LyricType",
+					likes: likes + 1
+				}
+			}
 		});
 	};
 
@@ -21,7 +29,10 @@ const LyricList = props => {
 				<li key={lyric.id} className="collection-item">
 					{lyric.content}
 					<div className="vote-box">
-						<i className="material-icons" onClick={() => onLike(lyric.id)}>
+						<i
+							className="material-icons"
+							onClick={() => onLike(lyric.id, lyric.likes)}
+						>
 							thumb_up
 						</i>
 						{lyric.likes}
