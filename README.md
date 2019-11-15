@@ -18,11 +18,16 @@ npm install
 npm run dev
 ```
 
+## Screenshots
+
+![Song List](https://i.imgur.com/L54mWAO.png "Song List")
+![Lyric List](https://i.imgur.com/uNimlwR.png "Lyric List")
+![Create Song](https://i.imgur.com/NcxhgLR.png "Create Song")
+
 ## Built With
 
 - React
 - ExpressJS
 - GraphQL
-- Apollo Client 
+- Apollo Client
 - MongoDB
-
