@@ -9,7 +9,7 @@ const NavBar = () => {
     <>
       <Container>
         <Navbar
-          className="justify-content-between"
+          className="text-center"
           bg="primary"
           variant="dark"
           style={navBarStyle}
@@ -25,6 +25,8 @@ const NavBar = () => {
   );
 };
 
-const navBarStyle = {};
+const navBarStyle = {
+  padding: "20px"
+};
 
 export default NavBar;
