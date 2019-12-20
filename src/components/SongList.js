@@ -28,7 +28,11 @@ const SongList = () => {
       return (
         <li key={song.id} className="collection-item">
           <Link to={`/songs/${song.id}`}>{song.title}</Link>
-          <i className="material-icons" onClick={() => onSongDelete(song.id)}>
+          <i
+            className="material-icons"
+            onClick={() => onSongDelete(song.id)}
+            style={deleteSongButtonStyle}
+          >
             delete
           </i>
         </li>
@@ -44,12 +48,16 @@ const SongList = () => {
       <NavBar></NavBar>
       <div className="container">
         <ul className="collection">{renderSongs()}</ul>
-        <Link to="/songs/new" className="btn-floating btn-large red right">
+        <Link to="/songs/new" className="btn-floating btn-medium red right">
           <i className="material-icons">add</i>
         </Link>
       </div>
     </Fragment>
   );
+};
+
+const deleteSongButtonStyle = {
+  color: "#f8877f"
 };
 
 export default SongList;
