@@ -32,7 +32,7 @@ const LyricList = props => {
             <i
               className="material-icons"
               onClick={() => onLike(lyric.id, lyric.likes)}
-              style={likeButtonStyle}
+              style={lyric.likes > 0 ? likeButtonStyle : likeButtonStyleNoLikes}
             >
               thumb_up
             </i>
@@ -51,6 +51,10 @@ const LyricList = props => {
 
 const likeButtonStyle = {
   color: "#f37e21"
+};
+
+const likeButtonStyleNoLikes = {
+  color: "#fbd3b4"
 };
 
 export default LyricList;
