@@ -1,6 +1,8 @@
-# MERN stack GraphQL Song Lyric Composer
+# MERN GraphQL Song Lyric Composer
 
-MERN stack GraphQL application that allows you to create custom songs by selecting random lyric lines.
+Full stack MERN web application using GraphQL and Apollo Client that allows users to create an empty song and then add custom lyrics to that song.
+
+All users are able to browse the song list and they can "like" a lyric that is listed in a song. This can be used to brainstorm song ideas and get a feel if people like the lyrics.
 
 ## Installation
 
@@ -18,16 +20,18 @@ npm install
 npm run dev
 ```
 
-## Screenshots
-
-![Song List](https://i.imgur.com/L54mWAO.png "Song List")
-![Lyric List](https://i.imgur.com/uNimlwR.png "Lyric List")
-![Create Song](https://i.imgur.com/NcxhgLR.png "Create Song")
-
 ## Built With
 
-- React
+- React (hooks)
+- NodeJS
 - ExpressJS
+- MongoDB
 - GraphQL
 - Apollo Client
-- MongoDB
+- Bootstrap
+
+## Screenshots
+
+![Song List](https://i.imgur.com/HVY95XS.png "Song List")
+![Lyric List](https://i.imgur.com/MTFz4MI.png "Lyric List")
+![Create Song](https://i.imgur.com/eD3xEoo.png "Create Song")
