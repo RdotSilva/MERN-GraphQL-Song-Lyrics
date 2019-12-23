@@ -25,16 +25,6 @@ app.get("/", (req, res) => {
   res.send("Server is up!");
 });
 
-// Serve static assets if in production
-if (process.env.NODE_ENV === "production") {
-  // Set static folder
-  app.use(express.static("build"));
-
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "build", "index.html"));
-  });
-}
-
 app.listen(port, () => console.log(`Server running on port: ${port}`));
 
 app.use(
@@ -44,5 +34,15 @@ app.use(
     graphiql: true
   })
 );
+
+// Serve static assets if in production
+if (process.env.NODE_ENV === "production") {
+  // Set static folder
+  app.use(express.static("build"));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "build", "index.html"));
+  });
+}
 
 module.exports = app;
