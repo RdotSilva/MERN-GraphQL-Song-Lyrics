@@ -11,25 +11,35 @@ const app = express();
 const port = process.env.PORT || 4000;
 
 mongoose
-	.connect(keys.mongoURI, { useNewUrlParser: true })
-	.then(() => console.log("MongoDB Connected"))
-	.catch(err => console.log(err));
+  .connect(keys.mongoURI, { useNewUrlParser: true })
+  .then(() => console.log("MongoDB Connected"))
+  .catch(err => console.log(err));
 
 app.use(cors());
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-	res.send("Server is up!");
+  res.send("Server is up!");
 });
+
+// Serve static assets if in production
+if (process.env.NODE_ENV === "production") {
+  // Set static folder
+  app.use(express.static("build"));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "build", "index.html"));
+  });
+}
 
 app.listen(port, () => console.log(`Server running on port: ${port}`));
 
 app.use(
-	"/graphql",
-	expressGraphQL({
-		schema,
-		graphiql: true
-	})
+  "/graphql",
+  expressGraphQL({
+    schema,
+    graphiql: true
+  })
 );
 
 module.exports = app;
