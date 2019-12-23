@@ -5,13 +5,16 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const schema = require("./schema/schema");
-const keys = require("../keys/devKeys");
+const dotenv = require("dotenv");
+
+// Load ENV variables
+dotenv.config({ path: "../config/config.env" });
 
 const app = express();
 const port = process.env.PORT || 4000;
 
 mongoose
-  .connect(keys.mongoURI, { useNewUrlParser: true })
+  .connect(process.env.MONGO_URI, { useNewUrlParser: true })
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 
