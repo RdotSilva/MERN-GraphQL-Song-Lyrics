@@ -31,9 +31,9 @@ class App extends Component {
             <Route exact path="/songlist" component={SongList} />
             <Route exact path="/songs/new" component={SongCreate} />
             <Route exact path="/songs/:id" component={SongDetail} />
-            <Route path="/">
+            {/* <Route path="/">
               <Redirect to="/songlist" />
-            </Route>
+            </Route> */}
           </Switch>
         </Router>
       </ApolloProvider>
