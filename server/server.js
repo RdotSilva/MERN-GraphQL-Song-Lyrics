@@ -7,6 +7,8 @@ const bodyParser = require("body-parser");
 const schema = require("./schema/schema");
 const dotenv = require("dotenv");
 
+const { ApolloServer } = require("apollo-server-express");
+
 // Load ENV variables
 dotenv.config({ path: "../config/config.env" });
 
@@ -27,6 +29,10 @@ app.use(
     graphiql: true
   })
 );
+
+const server = new ApolloServer({ schema });
+
+server.applyMiddleware({ app });
 
 app.listen(port, () => console.log(`Server running on port: ${port}`));
 
