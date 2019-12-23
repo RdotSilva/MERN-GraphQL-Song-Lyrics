@@ -10,7 +10,7 @@ import {
 
 import ApolloClient, { InMemoryCache } from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
-import { HttpLink } from "apollo-link-http";
+import { createHttpLink } from "apollo-link-http";
 import SongList from "./components/SongList";
 import SongCreate from "./components/SongCreate";
 import SongDetail from "./components/SongDetail";
