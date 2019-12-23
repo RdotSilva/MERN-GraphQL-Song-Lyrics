@@ -20,13 +20,6 @@ mongoose
 
 app.use(cors());
 app.use(bodyParser.json());
-
-app.get("/", (req, res) => {
-  res.send("Server is up!");
-});
-
-app.listen(port, () => console.log(`Server running on port: ${port}`));
-
 app.use(
   "/graphql",
   expressGraphQL({
@@ -34,6 +27,8 @@ app.use(
     graphiql: true
   })
 );
+
+app.listen(port, () => console.log(`Server running on port: ${port}`));
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === "production") {
