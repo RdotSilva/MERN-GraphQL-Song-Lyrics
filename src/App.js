@@ -10,7 +10,7 @@ import {
 
 import ApolloClient, { InMemoryCache } from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
-import { HttpLink } from "apollo-link-http";
+
 import SongList from "./components/SongList";
 import SongCreate from "./components/SongCreate";
 import SongDetail from "./components/SongDetail";
@@ -19,9 +19,7 @@ const cache = new InMemoryCache();
 
 // URI is set for production (removed local host)
 const client = new ApolloClient({
-  link: createHttpLink({
-    uri: "https://mern-song-creator.herokuapp.com/graphql"
-  }),
+  uri: "/graphql",
   cache
 });
 
