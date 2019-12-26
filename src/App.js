@@ -8,8 +8,7 @@ import {
   Redirect
 } from "react-router-dom";
 
-import { InMemoryCache } from "apollo-boost";
-import ApolloClient from "apollo-client";
+import ApolloClient, { InMemoryCache } from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
 import SongList from "./components/SongList";
 import SongCreate from "./components/SongCreate";
