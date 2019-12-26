@@ -34,6 +34,10 @@ const server = new ApolloServer({ schema });
 
 server.applyMiddleware({ app });
 
+server.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
+  console.log(`🚀 Server ready at ${url}`);
+});
+
 app.listen(port, () => console.log(`Server running on port: ${port}`));
 
 // Serve static assets if in production
