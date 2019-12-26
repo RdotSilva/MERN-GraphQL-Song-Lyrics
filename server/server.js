@@ -1,13 +1,10 @@
 const express = require("express");
-// const models = require("./models");
 const expressGraphQL = require("express-graphql");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const schema = require("./schema/schema");
 const dotenv = require("dotenv");
-
-const { ApolloServer } = require("apollo-server-express");
 
 // Load ENV variables
 dotenv.config({ path: "../config/config.env" });
@@ -22,6 +19,13 @@ mongoose
 
 app.use(cors());
 app.use(bodyParser.json());
+
+app.get("/", (req, res) => {
+  res.send("Server is up!");
+});
+
+app.listen(port, () => console.log(`Server running on port: ${port}`));
+
 app.use(
   "/graphql",
   expressGraphQL({
@@ -29,25 +33,5 @@ app.use(
     graphiql: true
   })
 );
-
-const server = new ApolloServer({ schema });
-
-server.applyMiddleware({ app });
-
-server.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
-  console.log(`🚀 Server ready at ${url}`);
-});
-
-app.listen(port, () => console.log(`Server running on port: ${port}`));
-
-// Serve static assets if in production
-if (process.env.NODE_ENV === "production") {
-  // Set static folder
-  app.use(express.static("build"));
-
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "build", "index.html"));
-  });
-}
 
 module.exports = app;
