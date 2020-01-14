@@ -18,7 +18,7 @@ const cache = new InMemoryCache();
 
 // URI is set for production (removed local host)
 const client = new ApolloClient({
-  uri: "/graphql",
+  uri: "http://localhost:4000/graphql",
   cache
 });
 
@@ -31,9 +31,9 @@ class App extends Component {
             <Route exact path="/songlist" component={SongList} />
             <Route exact path="/songs/new" component={SongCreate} />
             <Route exact path="/songs/:id" component={SongDetail} />
-            {/* <Route path="/">
+            <Route path="/">
               <Redirect to="/songlist" />
-            </Route> */}
+            </Route>
           </Switch>
         </Router>
       </ApolloProvider>

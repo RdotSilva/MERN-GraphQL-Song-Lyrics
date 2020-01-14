@@ -32,14 +32,6 @@ app.use(
   })
 );
 
-app.use(
-  "/songlist",
-  graphqlHTTP({
-    schema,
-    graphiql: false
-  })
-);
-
 app.use(express.static("build"));
 
 app.get("*", (req, res) => {
