@@ -27,7 +27,16 @@ app.use(bodyParser.json());
 app.use(
   "/graphql",
   graphqlHTTP({
-    schema
+    schema,
+    graphiql: false
+  })
+);
+
+app.use(
+  "/songlist",
+  graphqlHTTP({
+    schema,
+    graphiql: false
   })
 );
 
