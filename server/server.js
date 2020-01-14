@@ -5,6 +5,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const schema = require("./schema/schema");
 const dotenv = require("dotenv");
+const path = require("path");
 
 // Load ENV variables
 dotenv.config({ path: "../config/config.env" });
