@@ -26,7 +26,9 @@
     "react-scripts": "3.0.1"
   },
   "scripts": {
-    "start": "react-scripts start && cd server && node server",
+    "react": "react-scripts start",
+    "serve:": "cd server && node server.js",
+    "start": "npm run serve && npm run react",
     "server": "cd server && nodemon server",
     "client": "npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
