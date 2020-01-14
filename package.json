@@ -27,7 +27,7 @@
   },
   "scripts": {
     "react": "react-scripts start",
-    "serve:": "cd server && node server.js",
+    "serve": "cd server && node server.js",
     "start": "npm run serve && npm run react",
     "server": "cd server && nodemon server",
     "client": "npm start",
