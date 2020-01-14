@@ -18,7 +18,7 @@ const cache = new InMemoryCache();
 
 // URI is set for production (removed local host)
 const client = new ApolloClient({
-  uri: "https://mern-song-creator.herokuapp.com",
+  uri: "https://mern-song-creator.herokuapp.com/graphql",
   cache
 });
 
